@@ -14,11 +14,21 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
+      - name: 1. 파일 목록 출력
+        run: ls -al
+        
+      - name: 2. 파이썬 패키지 확인
+        run: pip list
  
       # Runs a single command using the runners shell
-      - name: Hello World 출력!
-        run: echo Hello, world!
+      - name: 3. pip 업그레이드
+        run: python -m pip install --upgrade pip
+
+      - name: 4. 필요한 패키지 인스톨
+        run: pip install -r requirements.txt
+        
 
       # Runs a set of commands using the runners shell
-      - name: 디렉토리 출력
-        run: ls -al;
+      - name: 5. 파이썬 일 실행
+        run: python crawling.py
