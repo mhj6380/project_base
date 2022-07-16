@@ -1,0 +1,38 @@
+import { BoardService } from "./board.service";
+import { CreateBoardContentDTO } from "./dto/create-board.dto";
+import { UpdateBoardContentDTO } from "./dto/update-board.dto";
+import { CreateCommentDTO, UpdateCommentDTO } from "./dto/comment.dto";
+import { Board, BoardContent, Comment } from "./entities/board.entity";
+import { CreateCommentLikeDTO, CreateLikeDTO } from "./dto/like.dto";
+import { CreateScrapDTO } from "./dto/scrap.dto";
+import { IResponse } from "src/interface/response.interface";
+import { Request } from "express";
+import { CreateBoardDTO } from "./dto/board.dto";
+export declare class BoardController {
+    private readonly boardService;
+    constructor(boardService: BoardService);
+    getFeedList(page: number, limit: number): Promise<BoardContent[]>;
+    getPersnalFeedList(userId: number, page: number, limit: number): Promise<BoardContent[]>;
+    getBoardInitList(req: Request): Promise<any[]>;
+    createBoardContent(boardData: CreateBoardContentDTO, req: Request): Promise<IResponse>;
+    getOneBoardContent(contentKey: string): Promise<BoardContent>;
+    getBoardGroup(topic: string, page: number, limit: number, req: Request): Promise<Board>;
+    createBoard(body: CreateBoardDTO, req: Request): Promise<Board>;
+    updateBoard(boardData: any): Promise<void>;
+    updateBoardContent(boardData: UpdateBoardContentDTO): Promise<void>;
+    createComment(boardData: CreateCommentDTO, req: Request): Promise<IResponse>;
+    updateComment(body: UpdateCommentDTO): Promise<IResponse>;
+    deleteComment(commentKey: string): Promise<IResponse>;
+    getComments(contentKey: string): Promise<Comment[]>;
+    getCommentChildrens(commentKey: string): Promise<Comment[]>;
+    getBoardList(boardKey: string, page: number, limit: number, sort: number, orderBy: "ASC" | "DESC", showReserve: boolean, req: Request): Promise<any>;
+    getBoardContentSearchList(searchText: string, boardKey: string, page: number, limit: number, sort: number, orderBy: "ASC" | "DESC", showReserve: boolean, req: Request): Promise<any>;
+    incrementViewCount(bo_id: number): Promise<void>;
+    actionLike(likeData: CreateLikeDTO): Promise<boolean>;
+    likeComment(likeData: CreateCommentLikeDTO): Promise<any>;
+    actionScrap(scrapData: CreateScrapDTO): Promise<boolean>;
+    incrementShareCount(bo_id: number): Promise<void>;
+    getOne(boardKey: string): Promise<Board>;
+    deleteBoard(boardKey: string): Promise<IResponse>;
+    deleteBoardContent(contentKey: string): Promise<IResponse>;
+}

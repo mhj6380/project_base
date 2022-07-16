@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-2{fill:#30353c}
+        </style>
+    </defs>
+    <g id="그룹_729" transform="translate(-20 -85)">
+        <g id="그룹_728">
+            <g id="그룹_726" transform="translate(0 -180)">
+                <g id="그룹_720" transform="translate(-324 245)">
+                    <circle id="타원_114" cx="15" cy="15" r="15" fill="#c9c9c9" transform="translate(344 20)"/>
+                </g>
+            </g>
+            <rect id="사각형_976" width="8" height="8" class="cls-2" rx="2" transform="translate(26.5 91.5)"/>
+            <rect id="사각형_977" width="8" height="8" class="cls-2" rx="2" transform="translate(35.5 91.5)"/>
+            <rect id="사각형_978" width="8" height="8" class="cls-2" rx="2" transform="translate(35.5 100.5)"/>
+            <rect id="사각형_979" width="8" height="8" class="cls-2" rx="2" transform="translate(26.5 100.5)"/>
+        </g>
+    </g>
+</svg>

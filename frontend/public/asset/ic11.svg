@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1{fill:#c9c9c9}
+        </style>
+    </defs>
+    <g id="그룹_805" transform="translate(-20 -685)">
+        <g id="그룹_803" transform="translate(-324 600)">
+            <g id="그룹_799" transform="translate(324 -539)">
+                <rect id="사각형_982" width="30" height="30" class="cls-1" rx="4" transform="translate(20 624)"/>
+            </g>
+        </g>
+        <g id="그룹_804" transform="translate(25.275 692.575)">
+            <path id="패스_512" fill="#454a52" d="M658.839 389.323h-14.067a2.691 2.691 0 0 0-2.691 2.691v9.468a2.691 2.691 0 0 0 2.691 2.691h14.067a2.691 2.691 0 0 0 2.691-2.691v-9.468a2.691 2.691 0 0 0-2.691-2.691zm-9.469 1.806a.7.7 0 1 1-.7.7.7.7 0 0 1 .7-.7zm-2.493 0a.7.7 0 1 1-.7.7.7.7 0 0 1 .7-.7zm-2.493 0a.7.7 0 1 1-.7.7.7.7 0 0 1 .701-.7zm15.539 9.281a2.691 2.691 0 0 1-2.691 2.691h-10.854a2.691 2.691 0 0 1-2.691-2.691v-6.566h16.237z" transform="translate(-642.081 -389.323)"/>
+            <path id="패스_513" d="M660.143 446.735a2.691 2.691 0 0 0 2.691 2.691h10.855a2.691 2.691 0 0 0 2.691-2.691v-6.566h-16.237z" class="cls-1" transform="translate(-658.537 -435.648)"/>
+            <circle id="타원_121" cx=".698" cy=".698" r=".698" class="cls-1" transform="rotate(-67.5 2.853 .4)"/>
+            <circle id="타원_122" cx=".698" cy=".698" r=".698" class="cls-1" transform="rotate(-9.217 13.951 -23.823)"/>
+            <circle id="타원_123" cx=".698" cy=".698" r=".698" class="cls-1" transform="translate(6.591 1.806)"/>
+        </g>
+    </g>
+</svg>

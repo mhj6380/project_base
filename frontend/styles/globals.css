@@ -1,0 +1,76 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+* {
+  font-family: "Noto Sans KR", sans-serif !important;
+}
+.pc {
+  display: none !important;
+}
+.tablet {
+  display: none !important;
+}
+.mobile {
+  display: inline-block !important;
+}
+.inner {
+  width: 100%;
+  margin: 0 auto;
+}
+.no_inner {
+  width: 100%;
+  margin: 0 auto;
+}
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+body {
+  padding: 0 !important;
+}
+
+@media (min-width: 768px) {
+  #root {
+    /* width: 768px; */
+  }
+  .mobile {
+    display: none !important;
+  }
+  .tablet {
+    display: inline-block !important;
+  }
+  .inner {
+    width: 728px;
+  }
+}
+@media (min-width: 992px) {
+  .pc {
+    display: inline-block !important;
+  }
+  .tablet {
+    display: none !important;
+  }
+  .inner {
+    width: 992px;
+  }
+
+  #root {
+    /* width: 992px; */
+  }
+}
+@media (min-width: 1200px) {
+  .inner {
+    width: 1200px;
+  }
+  #root {
+    /* width: 1200px; */
+  }
+}
+@media (min-width: 1400px) {
+  .inner {
+    width: 1400px;
+  }
+  #root {
+    /* width: 1400px; */
+  }
+}
