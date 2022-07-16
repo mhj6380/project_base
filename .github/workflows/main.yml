@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: HelloWorldAction
+
+# Controls when the workflow will run
+on: [push] 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - name: 1. 파일 목록 출력
+        run: ls -al
+        
+      - name: 2. 파이썬 패키지 확인
+        run: pip list
+ 
+      # Runs a single command using the runners shell
+      - name: 3. pip 업그레이드
+        run: python -m pip install --upgrade pip
+
+      - name: 4. 필요한 패키지 인스톨
+        run: pip install -r requirements.txt
+        
+
+      # Runs a set of commands using the runners shell
+      - name: 5. 파이썬 일 실행
+        run: python crawling.py
