@@ -28,7 +28,8 @@ jobs:
       - name: 4. 필요한 패키지 인스톨
         run: pip3 install -r install_requires.txt
 
-        
+      - name: 5. 인스톨 확인 
+        run: pip list
  
       # Runs a set of commands using the runners shell
       - name: 5. 파이썬 일 실행
