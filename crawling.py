@@ -10,5 +10,5 @@ soap = BeautifulSoup(html, 'html.parser')
 
 bookservices = soap.select('.title_text') 
 for no, book in enumerate(bookservices, 1): 
-  print(no, book, text.strip()) 
+  print(no, book.text.strip())  
  
