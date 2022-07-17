@@ -23,7 +23,7 @@ jobs:
  
       # Runs a single command using the runners shell
       - name: 3. pip 업그레이드
-        run: python -m pip install --upgrade pip
+        run: python3 -m pip install --upgrade pip
 
       - name: 4. 필요한 패키지 인스톨
         run: python3 -m pip install -r install_requires.txt
