@@ -33,4 +33,4 @@ jobs:
  
       # Runs a set of commands using the runners shell
       - name: 5. 파이썬 일 실행
-        run: python crawling.py
+        run: python3 crawling.py
