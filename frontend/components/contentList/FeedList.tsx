@@ -27,59 +27,33 @@ const theme = createTheme({
 });
 
 const FeedList: React.FC<ContentListProps> = ({
-  datas,
-  responsive,
-  gap,
   page,
   limit,
   totalCount,
   handleChangePage,
-  actions,
-  pagination,
-  useInfiniteScroll,
   listTitle,
   usePagination,
-  useMobileSwiperMode,
 }) => {
-  const offset = React.useRef(13);
-  const [hasMore, setHasMore] = React.useState(true);
-  const moreContentLoading = React.useRef(false);
-
-  // 무한스크롤 사용시에만 작동
-  // React.useEffect(() => {
-  //   if (!useInfiniteScroll) return;
-  //   if (!datas || datas.length === 0) {
-  //     return;
-  //   }
-  //   offset.current = limit || 10;
-  //   console.log("offset.current !", offset.current);
-
-  //   window.addEventListener("scroll", () => {
-  //     infinityScroll(hasMore, moreContentLoading, setSize, size);
-  //   });
-
-  //   return () => {
-  //     window.removeEventListener("scroll", () => {
-  //       infinityScroll(hasMore, moreContentLoading, setSize, size);
-  //     });
-  //   };
-  // }, [datas, offset]);
-
-  const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+  const {
+    data,
+    size,
+    setSize,
+    // isValidating
+  } = useSWRInfinite(
     (index) =>
       `${BACKEND_URL}/board/feed/${index === 0 ? 1 : index + 1}/${limit}`,
     fetcher
   );
 
   const issues = data ? [].concat(...data) : [];
-  const isLoadingInitialData = !data && !error;
-  const isLoadingMore =
-    isLoadingInitialData ||
-    (size > 0 && data && typeof data[size - 1] === "undefined");
+  // const isLoadingInitialData = !data && !error;
+  // const isLoadingMore =
+  //   isLoadingInitialData ||
+  //   (size > 0 && data && typeof data[size - 1] === "undefined");
   const isEmpty = data?.[0]?.length === 0;
   const isReachingEnd =
     isEmpty || (data && data[data.length - 1]?.length < limit);
-  const isRefreshing = isValidating && data && data.length === size;
+  // const isRefreshing = isValidating && data && data.length === size;
 
   return (
     <ThemeProvider theme={theme}>
@@ -193,35 +167,5 @@ const FeedListWrapper = styled.div`
     padding: 20px;
   }
 `;
-
-const infinityScroll = (
-  hasMore: any,
-  moreContentLoading: any,
-  setSize,
-  size
-) => {
-  console.log("infinity_1");
-  let scrollHeight = Math.max(
-    document.documentElement.scrollHeight,
-    document.body.scrollHeight
-  );
-  let scrollTop = Math.max(
-    document.documentElement.scrollTop,
-    document.body.scrollTop
-  );
-  let clientHeight = document.documentElement.clientHeight;
-  if (scrollTop + clientHeight >= scrollHeight - 500) {
-    console.log("infinity_2");
-    if (hasMore.current) {
-      if (!moreContentLoading.current) {
-        // pushNewDatas();
-        setSize(size + 1);
-        console.log("infinity_3");
-      }
-    }
-  }
-};
-
-const pushNewDatas = () => {};
 
 export default FeedList;

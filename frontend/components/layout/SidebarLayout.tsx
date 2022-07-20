@@ -44,6 +44,7 @@ const SidebarLayout: React.FC<Props> = observer(
     const dispatch = useAuthDispatch();
 
     React.useEffect(() => {
+      if (!useBackend) return;
       if (requiredLogin) {
         if (!accessToken) {
           // 로그인되어있지 않다면 로그인창으로
@@ -54,6 +55,7 @@ const SidebarLayout: React.FC<Props> = observer(
       if (accessToken) {
         // 로그인 되어있다면
         initializeAuth(accessToken, dispatch);
+        console.log(appStore); // 사용 시 제거
       }
     }, []);
 
@@ -219,4 +221,4 @@ const SidebarLayoutInnerWrapper = styled.div<{
 `;
 
 // export default inject("appStore")(SidebarLayout);
-export default SidebarLayout;
+export default inject("appStore")(SidebarLayout);

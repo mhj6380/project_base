@@ -1,13 +1,11 @@
 import React from "react";
 import ContentItem from "../contentItem/ContentItem";
-import ListContentItem from "../contentItem/ListContentItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Grid from "@material-ui/core/Grid";
 import { Pagination } from "antd";
 import {
   ContentListProps,
   ContentListWrapper,
-  infinityScroll,
   ListTitleWrapper,
 } from "./ContentList.styled";
 import Link from "next/link";
@@ -57,8 +55,6 @@ const ContentList: React.FC<ContentListProps> = ({
   infoPadding,
 }) => {
   const offset = React.useRef(13);
-  const hasMore = React.useRef(true);
-  const moreContentLoading = React.useRef(false);
 
   // 무한스크롤 사용시에만 작동
   React.useEffect(() => {

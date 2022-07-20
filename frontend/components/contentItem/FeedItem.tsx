@@ -68,7 +68,6 @@ const ContentItem: React.FC<IContentItem> = ({
   useShadow,
   useHoverScaleEffect,
   infoPadding,
-  useMobileListMode,
   thumbnailRadius,
   useMobileListOption,
 }) => {

@@ -277,7 +277,7 @@ interface IActionBox {
   handleScrab: any;
 }
 
-const BoardViewPage = (props: Props): JSX.Element => {
+const BoardViewPage = ({}: Props): JSX.Element => {
   const me = useAuthState();
   const router = useRouter();
   const { bo_id } = router.query;

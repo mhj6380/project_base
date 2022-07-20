@@ -4,6 +4,10 @@ import { AppStore } from "../../mobx/store/AppStore";
 import AppFooter from "../appFooter/AppFooter";
 import AppHeader from "../appHeader/AppHeader";
 import { useBackend } from "config";
+import { useAuthDispatch } from "lib/providers/authProvider";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import { initializeAuth } from "functions/auth.function";
 
 interface Props {
   children: any;
@@ -14,7 +18,25 @@ interface Props {
 
 const WideAppLayout: React.FC<Props> = observer(
   ({ children, appStore, requiredLogin }) => {
-    React.useEffect(() => {}, []);
+    const Router = useRouter();
+    const accessToken = Cookies.get("accessToken");
+    const dispatch = useAuthDispatch();
+
+    React.useEffect(() => {
+      if (!useBackend) return;
+      if (requiredLogin) {
+        if (!accessToken) {
+          // 로그인되어있지 않다면 로그인창으로
+          Router.push("/auth/login");
+        }
+      }
+
+      if (accessToken) {
+        // 로그인 되어있다면
+        initializeAuth(accessToken, dispatch);
+        console.log(appStore); // 사용 시 제거
+      }
+    }, []);
     return (
       <>
         {/* <div style={{ width: "100%", height: 100 }} ref={ref}> */}{" "}
@@ -115,4 +137,4 @@ const WideAppLayout: React.FC<Props> = observer(
 );
 
 // export default inject("appStore")(WideAppLayout);
-export default WideAppLayout;
+export default inject("appStore")(WideAppLayout);

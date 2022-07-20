@@ -83,7 +83,7 @@ const SearchBar: React.FC<ISearchBar> = ({
   buttonBackground,
   buttonTextColor,
   onSubmit,
-  useFilter,
+  // useFilter,
 }) => {
   return (
     <SearchBarWrapper

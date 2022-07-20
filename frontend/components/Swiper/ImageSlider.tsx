@@ -44,9 +44,9 @@ interface IndicatorStyle {
 interface Props {
   theme?: "theme1" | "theme2";
   items: SliderItem[];
-  delay: number;
+  delay?: number;
   speed: number;
-  autoplay: boolean;
+  autoplay?: boolean;
   slidesPerView: number;
   spaceBetween: number;
   borderRadius: number;

@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from "mobx";
+import { action, makeObservable } from "mobx";
 
 export class AppStore {
   rootStore;

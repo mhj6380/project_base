@@ -23,3 +23,5 @@ export const AESKey = "cubeleanAESKey6380";
 export const projectTitle = "큐브린 프로젝트";
 export const projecAdminTitle = "ADMIN";
 export const defaultUserProfile = "";
+export const defaultImage =
+  "https://cdn.pixabay.com/photo/2022/07/05/09/56/field-of-rapeseeds-7302708_1280.jpg";

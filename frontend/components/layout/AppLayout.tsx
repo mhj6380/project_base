@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import React from "react";
 import { inject, observer } from "mobx-react";
 import { AppStore } from "../../mobx/store/AppStore";
@@ -7,9 +6,8 @@ import AppHeader from "../appHeader/AppHeader";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { useAuthDispatch } from "lib/providers/authProvider";
-import axios from "axios";
-import jwtDecode from "jwt-decode";
 import { useBackend } from "config";
+import { initializeAuth } from "functions/auth.function";
 
 interface Props {
   children: any;
@@ -25,6 +23,7 @@ const AppLayout: React.FC<Props> = observer(
     const dispatch = useAuthDispatch();
 
     React.useEffect(() => {
+      if (!useBackend) return;
       if (requiredLogin) {
         if (!accessToken) {
           // 로그인되어있지 않다면 로그인창으로
@@ -34,21 +33,8 @@ const AppLayout: React.FC<Props> = observer(
 
       if (accessToken) {
         // 로그인 되어있다면
-
-        axios
-          .get(BACKEND_URL + "/auth/" + jwtDecode<any>(accessToken).userId, {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          })
-          .then((res: any) => {
-            const userInfo = res.data;
-            dispatch({ type: "UPDATE_USER", userInfo });
-
-            if (isUseSocket) {
-              authStore.init(userInfo); // mobx
-            }
-          });
-      } else {
-        authStore.init();
+        initializeAuth(accessToken, dispatch);
+        console.log(appStore); // 사용 시 제거
       }
     }, []);
     return (
@@ -151,4 +137,4 @@ const AppLayout: React.FC<Props> = observer(
 );
 
 // export default inject("appStore")(AppLayout);
-export default AppLayout;
+export default inject("appStore")(AppLayout);

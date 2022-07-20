@@ -237,3 +237,28 @@ export function numberWithCommas(x) {
   // return two;
   return String(two).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+export function getMediaType(extension) {
+  switch (extension) {
+    case "png":
+      return 0;
+    case "jpg":
+      return 0;
+    case "jpeg":
+      return 0;
+    case "gif":
+      return 0;
+    case "bmp":
+      return 0;
+    case "mp4":
+      return 1;
+    case "mov":
+      return 1;
+    case "wmv":
+      return 1;
+    case "avi":
+      return 1;
+    default:
+      return 0;
+  }
+}

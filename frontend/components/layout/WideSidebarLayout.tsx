@@ -6,6 +6,10 @@ import AppFooter from "../appFooter/AppFooter";
 import AppHeader from "../appHeader/AppHeader";
 import AccordionMenu from "../menu/AccordionMenu";
 import { useBackend } from "config";
+import Cookies from "js-cookie";
+import { useAuthDispatch } from "lib/providers/authProvider";
+import { useRouter } from "next/router";
+import { initializeAuth } from "functions/auth.function";
 
 interface Props {
   children?: any;
@@ -33,7 +37,25 @@ const WideSidebarLayout: React.FC<Props> = observer(
     disabledHeader,
     requiredLogin,
   }) => {
-    React.useEffect(() => {}, []);
+    const Router = useRouter();
+    const accessToken = Cookies.get("accessToken");
+    const dispatch = useAuthDispatch();
+
+    React.useEffect(() => {
+      if (!useBackend) return;
+      if (requiredLogin) {
+        if (!accessToken) {
+          // 로그인되어있지 않다면 로그인창으로
+          Router.push("/auth/login");
+        }
+      }
+
+      if (accessToken) {
+        // 로그인 되어있다면
+        initializeAuth(accessToken, dispatch);
+        console.log(appStore); // 사용 시 제거
+      }
+    }, []);
     return (
       <>
         {!disabledHeader && (
@@ -178,4 +200,4 @@ const WideSidebarLayoutInnerWrapper = styled.div<{
 `;
 
 // export default inject("appStore")(WideSidebarLayout);
-export default WideSidebarLayout;
+export default inject("appStore")(WideSidebarLayout);

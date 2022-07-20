@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-2{fill:#454a52}
+        </style>
+    </defs>
+    <g id="그룹_734" transform="translate(-20 -624)">
+        <rect id="사각형_982" width="30" height="30" fill="#c9c9c9" rx="4" transform="translate(20 624)"/>
+        <g id="mortarboard" transform="translate(23.547 565.885)">
+            <path id="패스_478" d="M97.679 270.358l-7.459-3.616v4.773l7.46 3.292 7.46-3.292v-4.773z" class="cls-2" transform="translate(-86.179 -193.195)"/>
+            <path id="패스_479" d="M23 70.146l-11.5-5.529L0 70.146l11.5 5.529 8.793-4.227v4.921h1.349V70.8z" class="cls-2"/>
+        </g>
+    </g>
+</svg>
