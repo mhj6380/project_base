@@ -32,22 +32,4 @@ jobs:
       # 모듈 설치
       - name: Install modules
         run: npm install
-      # testcode 실행
-      - name: Run test codes
-        run: npm run test
-      # 빌드
-      - name: Build project
-        run: npm run build
-      # 배포 
-      - name: Deploy build outputs
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          # AWS인 경우
-          # key: ${{ secrets.SSH_PEM_KEY }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          source: "out/*"
-          strip_components: 1
-          target: "/mnt/action"
+   
