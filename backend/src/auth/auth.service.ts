@@ -77,9 +77,20 @@ export class AuthService {
 
   async registerWeb(userData: CreateUserDTO) {
     try {
-      // await this.existsByUserId(userData.userId);
-      const splash = await this.splashRepository.findOne();
+      const current = await this.userRepository.findOne({
+        userId: userData.userId,
+      });
 
+      if (current) throw new BadRequestException("이미 가입된 정보입니다.");
+
+      if (userData.nickname) {
+        const currentNick = await this.userRepository.findOne({
+          nickname: userData.nickname,
+        });
+
+        if (currentNick)
+          throw new BadRequestException("중복되는 닉네임이 존재합니다.");
+      }
       const user = new User();
       user.userId = userData.userId;
       user.password = userData.password;
@@ -88,7 +99,6 @@ export class AuthService {
       user.agreeMarketing = userData.agreeMarketing;
       user.email = userData.email;
       user.level = userData.level;
-      // user.premiumExprierdAt = dayjs().add(splash.freeDays, "days").toDate();
       user.uid = userData.uid || userData.userId;
       user.phone = userData.phone ? Encrypt(userData.phone) : "";
 
@@ -97,9 +107,6 @@ export class AuthService {
       const accessToken = await this.jwtService.signAsync({
         userId: userData.userId,
       });
-      // const refreshToken = await this.jwtService.signAsync({
-      //   userId: userData.userId,
-      // });
 
       return {
         statusCode: 200,

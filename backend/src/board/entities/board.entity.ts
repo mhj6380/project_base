@@ -93,19 +93,11 @@ export class BoardContent {
   @Column()
   id: number;
 
-  @Column()
-  appKey: string;
-
   @Column({ length: 255 })
   boardKey: string;
 
   @PrimaryGeneratedColumn()
   contentKey: string;
-
-  @Column({ length: 255 })
-  wrapperKey: string;
-  @Column({ length: 255 })
-  templateKey: string;
 
   @Column({ length: 255 })
   topic: string;

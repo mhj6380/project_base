@@ -16,11 +16,6 @@ import {
 import { useRouter } from "next/router";
 import FlatLayout from "../../components/layout/FlatLayout";
 import { authLoginEndpoint } from "../../endpoints/app.endpoint";
-// import FlatLayout from "@Components/layout/FlatLayout";
-// import useSWR from "swr";
-// import { fetcher } from "globalFunction";
-// import DataLoading from "components/tools/DataLoading";
-// import { useAuthState } from "lib/providers/authProvider";
 
 const LoginForm = () => {
   // const me = useAuthState();

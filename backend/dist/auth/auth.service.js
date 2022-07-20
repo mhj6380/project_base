@@ -85,7 +85,18 @@ let AuthService = class AuthService {
     registerWeb(userData) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const splash = yield this.splashRepository.findOne();
+                const current = yield this.userRepository.findOne({
+                    userId: userData.userId,
+                });
+                if (current)
+                    throw new common_1.BadRequestException("이미 가입된 정보입니다.");
+                if (userData.nickname) {
+                    const currentNick = yield this.userRepository.findOne({
+                        nickname: userData.nickname,
+                    });
+                    if (currentNick)
+                        throw new common_1.BadRequestException("중복되는 닉네임이 존재합니다.");
+                }
                 const user = new auth_entity_1.User();
                 user.userId = userData.userId;
                 user.password = userData.password;

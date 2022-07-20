@@ -121,10 +121,6 @@ __decorate([
     __metadata("design:type", Number)
 ], BoardContent.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], BoardContent.prototype, "appKey", void 0);
-__decorate([
     typeorm_1.Column({ length: 255 }),
     __metadata("design:type", String)
 ], BoardContent.prototype, "boardKey", void 0);
@@ -132,14 +128,6 @@ __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", String)
 ], BoardContent.prototype, "contentKey", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], BoardContent.prototype, "wrapperKey", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], BoardContent.prototype, "templateKey", void 0);
 __decorate([
     typeorm_1.Column({ length: 255 }),
     __metadata("design:type", String)

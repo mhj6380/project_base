@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Intro = exports.BottomNav = exports.Splash = void 0;
+exports.Intro = exports.Splash = void 0;
 const typeorm_1 = require("typeorm");
 let Splash = class Splash {
 };
@@ -19,170 +19,104 @@ __decorate([
 ], Splash.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "appCode", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "splashImage", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "logoImage", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "facebookLoginIcon", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "googleLoginIcon", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "inappIcon", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "recIcon", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "recProgressImage", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "premiumUpgradeBannerImage", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "premiumUpgradeBannerImageEn", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "premiumUpgradeButton1", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "premiumUpgradeButton2", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "premiumUpgradeButtonEn1", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "premiumUpgradeButtonEn2", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "recBackgroundImage", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "mypageTabIcon1", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "mypageTabIcon2", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "mypageTabIcon3", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "mypageTabIcon4", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "giftIconImage", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Splash.prototype, "defaultBackgroundImage", void 0);
+    __metadata("design:type", Boolean)
+], Splash.prototype, "introFirstRun", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
-], Splash.prototype, "normalUserSoundMixSaveCount", void 0);
+], Splash.prototype, "freeDays", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "videoProject", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "videoProjectStatement", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
-], Splash.prototype, "normalUserSoundMixDailyPublicCount", void 0);
+], Splash.prototype, "splashTime", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "splashImageUrl", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], Splash.prototype, "useIntroPage", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
-], Splash.prototype, "premiumUserSoundMixSaveCount", void 0);
+], Splash.prototype, "appUpdateOptionAndroid", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
-], Splash.prototype, "premiumUserSoundMixDailyPublicCount", void 0);
+], Splash.prototype, "appUpdateOptionIos", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "soundSelectedBackgroundImage", void 0);
+], Splash.prototype, "requiredMinVersionAndroid", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "onesignalAppId", void 0);
+], Splash.prototype, "requiredMinVersionIos", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "onesignalRestApiKey", void 0);
+], Splash.prototype, "companyName", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "interstitialAdUnitId", void 0);
+], Splash.prototype, "companyTel", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "openAdUnitId", void 0);
+], Splash.prototype, "companyCellNumber", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "rewardAdUnitId", void 0);
+], Splash.prototype, "serviceName", void 0);
 __decorate([
-    typeorm_1.Column({ select: false }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "policy", void 0);
+], Splash.prototype, "csTel", void 0);
 __decorate([
-    typeorm_1.Column({ select: false }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
-], Splash.prototype, "terms", void 0);
+], Splash.prototype, "csKakaoUrl", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], Splash.prototype, "csKakaoUrlUsed", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "ownerName", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "companyAddress", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "companyNumber", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "companyEmail", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "permissionService", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Splash.prototype, "permissionGain", void 0);
 Splash = __decorate([
     typeorm_1.Entity()
 ], Splash);
 exports.Splash = Splash;
-let BottomNav = class BottomNav {
-};
-__decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
-    __metadata("design:type", Number)
-], BottomNav.prototype, "id", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], BottomNav.prototype, "title", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], BottomNav.prototype, "iconImage", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], BottomNav.prototype, "pageBackgroundImage", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], BottomNav.prototype, "targetPath", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", Number)
-], BottomNav.prototype, "sortIndex", void 0);
-BottomNav = __decorate([
-    typeorm_1.Entity("bottomNav")
-], BottomNav);
-exports.BottomNav = BottomNav;
 let Intro = class Intro {
 };
 __decorate([

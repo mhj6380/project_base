@@ -6,20 +6,14 @@ import { Connection } from "typeorm";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { AppGateway } from "./app.gateway";
 import { AppService } from "./app/app.service";
-import { BottomNav, Intro, Splash } from "./app/entities/splash.entity";
+import { Intro, Splash } from "./app/entities/splash.entity";
 import { S3Module } from "./s3/s3.module";
 import { CsModule } from "./cs/cs.module";
 import { NoticeModule } from "./notice/notice.module";
 import { Qna } from "./app/entities/qna.entity";
-
-import {
-  LanguageString,
-  LanguageString2,
-} from "./app/entities/language-string.entity";
 import { User } from "./auth/entities/auth.entity";
 import { LikeUser } from "./app/entities/like.entity";
 import { QnaModule } from "./qna/qna.module";
-
 import { Premium } from "./app/entities/premium.entity";
 import { APP_FILTER } from "@nestjs/core";
 import { AllExceptionsFilter } from "./all-exception.filter";
@@ -28,10 +22,7 @@ import { Scrab } from "./app/entities/scrab.entity";
 import { PushMessageModule } from "./push-message/push-message.module";
 import { PushMessage } from "./push-message/entities/notification.entity";
 import { PushMessageService } from "./push-message/push-message.service";
-// import { OnesignalService } from "./onesignal/onesignal.service";
-
 import { FakeComment } from "./app/entities/fake.entity";
-// import { ScheduleModule } from "@nestjs/schedule";
 import { TestData } from "./app/entities/test.data.entity";
 import { Topic } from "./topic/entities/topic.entity";
 import { Board } from "./board/entities/board.entity";
@@ -39,6 +30,7 @@ import { TopicModule } from "./topic/topic.module";
 import { BoardModule } from "./board/board.module";
 import { FriendshipModule } from "./friendship/friendship.module";
 import { ScheduleModule } from "./schedule/schedule.module";
+import { FeedbackModule } from "./feedback/feedback.module";
 // import Joi from 'joi';
 
 @Module({
@@ -70,9 +62,6 @@ import { ScheduleModule } from "./schedule/schedule.module";
     TypeOrmModule.forFeature([
       Splash,
       Qna,
-      BottomNav,
-      LanguageString,
-      LanguageString2,
       User,
       LikeUser,
       Premium,
@@ -92,6 +81,7 @@ import { ScheduleModule } from "./schedule/schedule.module";
     TopicModule,
     BoardModule,
     ScheduleModule,
+    FriendshipModule,
     // OneSignalModule.forRoot({
     //   appId: "4c700a2a-7052-4790-9574-2b1cb46f4e6c",
     //   restApiKey: "MWM3NWM5MGMtY2UxYy00MWM2LTk2YTgtNWUzYWZhZWI0YzMx",
@@ -108,6 +98,7 @@ import { ScheduleModule } from "./schedule/schedule.module";
     }),
     // ScheduleModule.forRoot(),
     FriendshipModule,
+    FeedbackModule,
     // ScheduleModule,
   ],
   controllers: [AppController],

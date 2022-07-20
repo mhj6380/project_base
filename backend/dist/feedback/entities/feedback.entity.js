@@ -9,10 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GroupApprove = void 0;
+exports.Feedback = void 0;
 const typeorm_1 = require("typeorm");
-const auth_entity_1 = require("./auth.entity");
-let GroupApprove = class GroupApprove {
+let Feedback = class Feedback {
     setCreateDate() {
         this.createdAt = new Date();
     }
@@ -22,42 +21,29 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], GroupApprove.prototype, "setCreateDate", null);
+], Feedback.prototype, "setCreateDate", null);
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], GroupApprove.prototype, "id", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", Number)
-], GroupApprove.prototype, "userId", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", Number)
-], GroupApprove.prototype, "categoryType", void 0);
+], Feedback.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], GroupApprove.prototype, "categoryUid", void 0);
+], Feedback.prototype, "userId", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
-], GroupApprove.prototype, "status", void 0);
+], Feedback.prototype, "score", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Feedback.prototype, "content", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Date)
-], GroupApprove.prototype, "approveAt", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", Date)
-], GroupApprove.prototype, "createdAt", void 0);
-__decorate([
-    typeorm_1.OneToOne((type) => auth_entity_1.User),
-    typeorm_1.JoinColumn({ name: "userId", referencedColumnName: "id" }),
-    __metadata("design:type", auth_entity_1.User)
-], GroupApprove.prototype, "userInfo", void 0);
-GroupApprove = __decorate([
-    typeorm_1.Entity("group_approve")
-], GroupApprove);
-exports.GroupApprove = GroupApprove;
-//# sourceMappingURL=group.approve.entity.js.map
+], Feedback.prototype, "createdAt", void 0);
+Feedback = __decorate([
+    typeorm_1.Entity("feedback")
+], Feedback);
+exports.Feedback = Feedback;
+//# sourceMappingURL=feedback.entity.js.map

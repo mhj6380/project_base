@@ -6,123 +6,71 @@ export class Splash {
   id: number;
 
   @Column()
-  appCode: string;
+  introFirstRun: boolean;
 
   @Column()
-  splashImage: string;
+  freeDays: number;
 
   @Column()
-  logoImage: string;
+  videoProject: string;
+  @Column()
+  videoProjectStatement: string;
 
   @Column()
-  facebookLoginIcon: string;
+  splashTime: number;
 
   @Column()
-  googleLoginIcon: string;
+  splashImageUrl: string;
 
   @Column()
-  inappIcon: string;
+  useIntroPage: boolean;
+
+  @Column() // 최신버전 업데이트 상태 1:스토어 최신버전 필수업데이트 | 2:스토어 최신버전 선택적업데이트 | 3:없음
+  appUpdateOptionAndroid: number;
 
   @Column()
-  recIcon: string;
+  appUpdateOptionIos: number;
 
   @Column()
-  recProgressImage: string;
+  requiredMinVersionAndroid: string;
 
   @Column()
-  premiumUpgradeBannerImage: string;
+  requiredMinVersionIos: string;
 
   @Column()
-  premiumUpgradeBannerImageEn: string;
+  companyName: string;
   @Column()
-  premiumUpgradeButton1: string;
-  @Column()
-  premiumUpgradeButton2: string;
-  @Column()
-  premiumUpgradeButtonEn1: string;
-  @Column()
-  premiumUpgradeButtonEn2: string;
+  companyTel: string;
+  // @Column()
+  // companyName: string;
 
   @Column()
-  recBackgroundImage: string;
+  companyCellNumber: string;
 
   @Column()
-  mypageTabIcon1: string;
+  serviceName: string;
+  @Column()
+  csTel: string;
+  @Column()
+  csKakaoUrl: string;
+  @Column()
+  csKakaoUrlUsed: boolean;
 
   @Column()
-  mypageTabIcon2: string;
+  ownerName: string;
 
   @Column()
-  mypageTabIcon3: string;
+  companyAddress: string;
 
   @Column()
-  mypageTabIcon4: string;
+  companyNumber: string;
 
   @Column()
-  giftIconImage: string;
-
+  companyEmail: string;
   @Column()
-  defaultBackgroundImage: string;
-
+  permissionService: string;
   @Column()
-  normalUserSoundMixSaveCount: number;
-
-  @Column()
-  normalUserSoundMixDailyPublicCount: number;
-
-  @Column()
-  premiumUserSoundMixSaveCount: number;
-
-  @Column()
-  premiumUserSoundMixDailyPublicCount: number;
-
-  @Column()
-  soundSelectedBackgroundImage: string;
-
-  @Column()
-  onesignalAppId: string;
-
-  @Column()
-  onesignalRestApiKey: string;
-
-  @Column()
-  interstitialAdUnitId: string;
-
-  @Column()
-  openAdUnitId: string;
-
-  @Column()
-  rewardAdUnitId: string;
-
-  @Column({ select: false })
-  policy: string;
-
-  @Column({ select: false })
-  terms: string;
-}
-
-@Entity("bottomNav")
-export class BottomNav {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column({ length: 255 })
-  title: string;
-
-  // @Column({ length: 255 })
-  // titleEn: string;
-
-  @Column({ length: 255 })
-  iconImage: string;
-
-  @Column({ length: 255 })
-  pageBackgroundImage: string;
-
-  @Column({ length: 255 })
-  targetPath: string;
-
-  @Column()
-  sortIndex: number;
+  permissionGain: string;
 }
 
 @Entity("intro")

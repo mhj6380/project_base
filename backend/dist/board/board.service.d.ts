@@ -6,7 +6,6 @@ import { CreateCommentDTO, UpdateCommentDTO } from "./dto/comment.dto";
 import { CreateCommentLikeDTO, CreateLikeDTO } from "./dto/like.dto";
 import { CreateScrapDTO } from "./dto/scrap.dto";
 import { IResponse } from "src/interface/response.interface";
-import { ContentTemplate } from "./entities/template.entity";
 import { CreateBoardDTO, UpdateBoardDTO } from "./dto/board.dto";
 export declare class BoardService {
     private readonly boardRepository;
@@ -15,8 +14,7 @@ export declare class BoardService {
     private readonly likeRepository;
     private readonly commentLikeRepository;
     private readonly scrapRepository;
-    private readonly contentTemplateRepository;
-    constructor(boardRepository: Repository<Board>, boardContentRepository: Repository<BoardContent>, commentRepository: Repository<Comment>, likeRepository: Repository<Like>, commentLikeRepository: Repository<CommentLike>, scrapRepository: Repository<Scrap>, contentTemplateRepository: Repository<ContentTemplate>);
+    constructor(boardRepository: Repository<Board>, boardContentRepository: Repository<BoardContent>, commentRepository: Repository<Comment>, likeRepository: Repository<Like>, commentLikeRepository: Repository<CommentLike>, scrapRepository: Repository<Scrap>);
     getFeedList(page: number, limit: number): Promise<BoardContent[]>;
     getPersnalFeedList(userId: number, page: number, limit: number): Promise<BoardContent[]>;
     getOneBoardContent(contentKey: string): Promise<BoardContent>;

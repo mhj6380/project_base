@@ -5,6 +5,7 @@ import { AppStore } from "../../mobx/store/AppStore";
 import AppFooter from "../appFooter/AppFooter";
 import AppHeader from "../appHeader/AppHeader";
 import AccordionMenu from "../menu/AccordionMenu";
+import { useBackend } from "config";
 
 interface Props {
   children?: any;
@@ -16,6 +17,7 @@ interface Props {
   sidebarTop?: number; // 헤더의 높이값정도 넣어주면 됨
   sidebarPaddingTop?: number;
   disabledHeader?: boolean;
+  requiredLogin?: boolean;
 }
 
 const WideSidebarLayout: React.FC<Props> = observer(
@@ -29,6 +31,7 @@ const WideSidebarLayout: React.FC<Props> = observer(
     sidebarTop,
     sidebarPaddingTop,
     disabledHeader,
+    requiredLogin,
   }) => {
     React.useEffect(() => {}, []);
     return (

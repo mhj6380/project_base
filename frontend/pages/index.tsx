@@ -18,7 +18,12 @@ const Home: NextPage<Props> = ({ appStore }) => {
   const { data } = useSWR(`${BACKEND_URL}/board/feed/1/10`, fetcher);
 
   return (
-    <SidebarLayout title="TITLE" disabledHeader={true} useFixed={true}>
+    <SidebarLayout
+      title="TITLE"
+      disabledHeader={true}
+      useFixed={true}
+      requiredLogin={true}
+    >
       <div style={{ width: "100%", height: 40 }}></div>
 
       {data ? (

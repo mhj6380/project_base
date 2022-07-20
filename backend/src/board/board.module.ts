@@ -11,7 +11,6 @@ import {
   Like,
   Scrap,
 } from "./entities/board.entity";
-import { ContentTemplate } from "./entities/template.entity";
 
 @Module({
   imports: [
@@ -21,7 +20,7 @@ import { ContentTemplate } from "./entities/template.entity";
       Comment,
       Like,
       Scrap,
-      ContentTemplate,
+
       CommentLike,
     ]),
     ConfigModule,

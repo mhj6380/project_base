@@ -32,7 +32,6 @@ const s3_module_1 = require("./s3/s3.module");
 const cs_module_1 = require("./cs/cs.module");
 const notice_module_1 = require("./notice/notice.module");
 const qna_entity_1 = require("./app/entities/qna.entity");
-const language_string_entity_1 = require("./app/entities/language-string.entity");
 const auth_entity_1 = require("./auth/entities/auth.entity");
 const like_entity_1 = require("./app/entities/like.entity");
 const qna_module_1 = require("./qna/qna.module");
@@ -50,6 +49,7 @@ const topic_module_1 = require("./topic/topic.module");
 const board_module_1 = require("./board/board.module");
 const friendship_module_1 = require("./friendship/friendship.module");
 const schedule_module_1 = require("./schedule/schedule.module");
+const feedback_module_1 = require("./feedback/feedback.module");
 let AppModule = class AppModule {
     constructor(connection) {
         this.connection = connection;
@@ -84,9 +84,6 @@ AppModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([
                 splash_entity_1.Splash,
                 qna_entity_1.Qna,
-                splash_entity_1.BottomNav,
-                language_string_entity_1.LanguageString,
-                language_string_entity_1.LanguageString2,
                 auth_entity_1.User,
                 like_entity_1.LikeUser,
                 premium_entity_1.Premium,
@@ -106,6 +103,7 @@ AppModule = __decorate([
             topic_module_1.TopicModule,
             board_module_1.BoardModule,
             schedule_module_1.ScheduleModule,
+            friendship_module_1.FriendshipModule,
             onesignal_api_client_nest_1.OneSignalModule.forRootAsync({
                 imports: [config_1.ConfigModule],
                 inject: [config_1.ConfigService],
@@ -117,6 +115,7 @@ AppModule = __decorate([
                 }),
             }),
             friendship_module_1.FriendshipModule,
+            feedback_module_1.FeedbackModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [

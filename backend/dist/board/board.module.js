@@ -13,7 +13,6 @@ const board_controller_1 = require("./board.controller");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const board_entity_1 = require("./entities/board.entity");
-const template_entity_1 = require("./entities/template.entity");
 let BoardModule = class BoardModule {
 };
 BoardModule = __decorate([
@@ -25,7 +24,6 @@ BoardModule = __decorate([
                 board_entity_1.Comment,
                 board_entity_1.Like,
                 board_entity_1.Scrap,
-                template_entity_1.ContentTemplate,
                 board_entity_1.CommentLike,
             ]),
             config_1.ConfigModule,

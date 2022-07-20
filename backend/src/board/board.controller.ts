@@ -19,8 +19,7 @@ import { CreateCommentLikeDTO, CreateLikeDTO } from "./dto/like.dto";
 import { CreateScrapDTO } from "./dto/scrap.dto";
 import { BoardItemsPaginationDTO } from "./dto/board-pageination-result.dto";
 import { IResponse } from "src/interface/response.interface";
-import { CreateTemplateDTO } from "./dto/template.dto";
-import { ContentTemplate } from "./entities/template.entity";
+
 import { Request } from "express";
 import { CreateBoardDTO } from "./dto/board.dto";
 

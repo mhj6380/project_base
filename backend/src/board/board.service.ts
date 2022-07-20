@@ -20,7 +20,7 @@ import { CreateCommentLikeDTO, CreateLikeDTO } from "./dto/like.dto";
 import { CreateScrapDTO } from "./dto/scrap.dto";
 import { BoardItemsPaginationDTO } from "./dto/board-pageination-result.dto";
 import { IResponse } from "src/interface/response.interface";
-import { ContentTemplate } from "./entities/template.entity";
+
 import { CreateTemplateDTO } from "./dto/template.dto";
 import { CreateBoardDTO, UpdateBoardDTO } from "./dto/board.dto";
 
@@ -40,9 +40,7 @@ export class BoardService {
     @InjectRepository(CommentLike)
     private readonly commentLikeRepository: Repository<CommentLike>,
     @InjectRepository(Scrap)
-    private readonly scrapRepository: Repository<Scrap>,
-    @InjectRepository(ContentTemplate)
-    private readonly contentTemplateRepository: Repository<ContentTemplate>
+    private readonly scrapRepository: Repository<Scrap>
   ) {}
 
   async getFeedList(page: number, limit: number) {
@@ -53,7 +51,7 @@ export class BoardService {
       .select([
         "boardContent.id",
         "boardContent.contentKey",
-        "boardContent.wrapperKey",
+
         "boardContent.templateKey",
         "boardContent.title",
         "boardContent.subTitle",
@@ -104,7 +102,6 @@ export class BoardService {
       .select([
         // "boardContent.id",
         "boardContent.contentKey",
-        "boardContent.wrapperKey",
         "boardContent.templateKey",
         "boardContent.title",
         "boardContent.subTitle",
@@ -369,8 +366,6 @@ export class BoardService {
     // boardContent.appKey = pkgname;
     boardContent.boardKey = body.boardKey;
     boardContent.contentKey = body.contentKey;
-    boardContent.wrapperKey = body.wrapperKey;
-    boardContent.templateKey = body.templateKey;
     boardContent.title = body.title;
     boardContent.subTitle = body.subTitle;
     boardContent.content = body.content;
@@ -723,7 +718,7 @@ export class BoardService {
       .select([
         // "boardContent.id",
         "boardContent.contentKey",
-        "boardContent.wrapperKey",
+
         "boardContent.templateKey",
         "boardContent.title",
         "boardContent.subTitle",

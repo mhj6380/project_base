@@ -27,17 +27,15 @@ const typeorm_1 = require("@nestjs/typeorm");
 const board_entity_1 = require("./entities/board.entity");
 const typeorm_2 = require("typeorm");
 const response_interface_1 = require("../interface/response.interface");
-const template_entity_1 = require("./entities/template.entity");
 const dayjs = require("dayjs");
 let BoardService = class BoardService {
-    constructor(boardRepository, boardContentRepository, commentRepository, likeRepository, commentLikeRepository, scrapRepository, contentTemplateRepository) {
+    constructor(boardRepository, boardContentRepository, commentRepository, likeRepository, commentLikeRepository, scrapRepository) {
         this.boardRepository = boardRepository;
         this.boardContentRepository = boardContentRepository;
         this.commentRepository = commentRepository;
         this.likeRepository = likeRepository;
         this.commentLikeRepository = commentLikeRepository;
         this.scrapRepository = scrapRepository;
-        this.contentTemplateRepository = contentTemplateRepository;
     }
     getFeedList(page, limit) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -48,7 +46,6 @@ let BoardService = class BoardService {
                 .select([
                 "boardContent.id",
                 "boardContent.contentKey",
-                "boardContent.wrapperKey",
                 "boardContent.templateKey",
                 "boardContent.title",
                 "boardContent.subTitle",
@@ -96,7 +93,6 @@ let BoardService = class BoardService {
                 .leftJoinAndSelect("boardContent.authorInfo", "authorInfo")
                 .select([
                 "boardContent.contentKey",
-                "boardContent.wrapperKey",
                 "boardContent.templateKey",
                 "boardContent.title",
                 "boardContent.subTitle",
@@ -333,8 +329,6 @@ let BoardService = class BoardService {
             const boardContent = new board_entity_1.BoardContent();
             boardContent.boardKey = body.boardKey;
             boardContent.contentKey = body.contentKey;
-            boardContent.wrapperKey = body.wrapperKey;
-            boardContent.templateKey = body.templateKey;
             boardContent.title = body.title;
             boardContent.subTitle = body.subTitle;
             boardContent.content = body.content;
@@ -544,7 +538,6 @@ let BoardService = class BoardService {
                 .leftJoinAndSelect("boardContent.authorInfo", "authorInfo")
                 .select([
                 "boardContent.contentKey",
-                "boardContent.wrapperKey",
                 "boardContent.templateKey",
                 "boardContent.title",
                 "boardContent.subTitle",
@@ -674,9 +667,7 @@ BoardService = __decorate([
     __param(3, typeorm_1.InjectRepository(board_entity_1.Like)),
     __param(4, typeorm_1.InjectRepository(board_entity_1.CommentLike)),
     __param(5, typeorm_1.InjectRepository(board_entity_1.Scrap)),
-    __param(6, typeorm_1.InjectRepository(template_entity_1.ContentTemplate)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

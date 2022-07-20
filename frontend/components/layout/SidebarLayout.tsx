@@ -5,6 +5,11 @@ import { AppStore } from "../../mobx/store/AppStore";
 import AppFooter from "../appFooter/AppFooter";
 import AppHeader from "../appHeader/AppHeader";
 import AccordionMenu from "../menu/AccordionMenu";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
+import { useAuthDispatch } from "lib/providers/authProvider";
+import { useBackend } from "config";
+import { initializeAuth } from "functions/auth.function";
 
 interface Props {
   children?: any;
@@ -17,6 +22,7 @@ interface Props {
   sidebarPaddingTop?: number;
   disabledHeader?: boolean;
   useFixed?: boolean;
+  requiredLogin?: boolean;
 }
 
 const SidebarLayout: React.FC<Props> = observer(
@@ -31,8 +37,26 @@ const SidebarLayout: React.FC<Props> = observer(
     appStore,
     disabledHeader,
     useFixed,
+    requiredLogin,
   }) => {
-    React.useEffect(() => {}, []);
+    const Router = useRouter();
+    const accessToken = Cookies.get("accessToken");
+    const dispatch = useAuthDispatch();
+
+    React.useEffect(() => {
+      if (requiredLogin) {
+        if (!accessToken) {
+          // 로그인되어있지 않다면 로그인창으로
+          Router.push("/auth/login");
+        }
+      }
+
+      if (accessToken) {
+        // 로그인 되어있다면
+        initializeAuth(accessToken, dispatch);
+      }
+    }, []);
+
     return (
       <>
         {!disabledHeader && (

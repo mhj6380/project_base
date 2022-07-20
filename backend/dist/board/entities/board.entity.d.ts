@@ -24,11 +24,8 @@ export declare class Board {
 export declare class BoardContent {
     private setCreateDate;
     id: number;
-    appKey: string;
     boardKey: string;
     contentKey: string;
-    wrapperKey: string;
-    templateKey: string;
     topic: string;
     title: string;
     subTitle: string;
